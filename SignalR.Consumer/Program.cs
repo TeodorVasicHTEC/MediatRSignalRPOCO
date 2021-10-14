@@ -10,7 +10,7 @@ namespace SignalR.Consumer
         public static HubConnection Connection;
         static async Task Main(string[] args)
         {
-            Console.WriteLine("Starting client  http://localhost:5000/notification-hub");
+            Console.WriteLine("Starting client  https://localhost:5001/notification-hub");
             Connection = new HubConnectionBuilder()
                 .WithUrl("http://localhost:5000/notification-hub")
                 .Build();
