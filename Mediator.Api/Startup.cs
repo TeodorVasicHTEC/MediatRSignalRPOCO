@@ -12,7 +12,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Mediator.Api.Config;
+using Mediator.Api.Services;
 using Mediator.Domain.Data;
+using Mediator.Domain.Services;
 using MediatR;
 
 namespace Mediator.Api
@@ -36,6 +38,7 @@ namespace Mediator.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Mediator.Api", Version = "v1" });
             });
 
+            services.AddScoped<IProjectionUpdateService, ProjectionUpdateService>();
             services.AddSingleton<IDataAccess, DataAccess>();
             services.AddMediatR(typeof(DataAccess).Assembly,
                 typeof(EmployeeServiceNotificationHub).Assembly);
